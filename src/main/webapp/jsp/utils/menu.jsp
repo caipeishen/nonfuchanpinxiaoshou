@@ -209,59 +209,6 @@ var menus = [
 	    ],
 	    "roleName":"农户",
 	    "tableName":"shangjia"
-	},
-	{
-	    "backMenu":[
-	        {
-	            "child":[
-	                {
-	                    "buttons":[
-	                        "查看"
-	                    ],
-	                    "menu":"农产品信息管理",
-	                    "menuJump":"列表",
-	                    "tableName":"goods"
-	                }
-	                ,
-	                {
-	                    "buttons":[
-	                        "查看"
-	                    ],
-	                    "menu":"农产品信息评价管理",
-	                    "menuJump":"列表",
-	                    "tableName":"goodsCommentback"
-	                }
-	                ,
-	                {
-	                    "buttons":[
-	                        "查看"
-	                    ],
-	                    "menu":"农产品信息订单管理",
-	                    "menuJump":"列表",
-	                    "tableName":"goodsOrder"
-	                }
-	            ],
-	            "menu":"农产品信息管理"
-	        }
-	        ,{
-	            "child":[
-	                {
-	                    "buttons":[
-	                        "查看"
-	                    ],
-	                    "menu":"新闻信息管理",
-	                    "menuJump":"列表",
-	                    "tableName":"news"
-	                }
-	            ],
-	            "menu":"新闻信息管理"
-	        }
-	    ],
-	    "frontMenu":[
-	
-	    ],
-	    "roleName":"用户",
-	    "tableName":"yonghu"
 	}
 ];
 

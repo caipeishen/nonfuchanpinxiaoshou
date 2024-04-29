@@ -47,9 +47,9 @@
                         <li class=''>
                             <a href="javascript:centerPage();" class="am-pclink" style="font-size: 25px">我的</a>
                         </li>
-                        <li class=''>
-                            <a target="_blank" :href="adminurl" class="am-pclink" style="font-size: 25px">跳转到后台</a>
-                        </li>
+<%--                        <li class=''>--%>
+<%--                            <a target="_blank" :href="adminurl" class="am-pclink" style="font-size: 25px">跳转到后台</a>--%>
+<%--                        </li>--%>
                         <li class=''>
                             <a href="javascript:navPage('./pages/cart/list.jsp')" class="am-pclink" style="font-size: 25px">
                                 <i class="layui-icon" style="font-size: 25px;">&#xe657;</i> 购物车
