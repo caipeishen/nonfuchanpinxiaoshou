@@ -168,7 +168,7 @@ public class GoodsController {
         GoodsEntity goodsEntity = goodsService.selectOne(queryWrapper);
         if(goodsEntity==null){
             goods.setGoodsClicknum(1);
-            goods.setShangxiaTypes(1);
+            goods.setShangxiaTypes(3);
             goods.setGoodsDelete(1);
             goods.setCreateTime(new Date());
             goodsService.insert(goods);

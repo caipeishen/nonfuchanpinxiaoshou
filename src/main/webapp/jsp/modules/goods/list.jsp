@@ -427,56 +427,108 @@
             detailBtn.innerHTML = "查看";
             btnGroup.appendChild(detailBtn);
 
-            //上下架
-            var editBtn = document.createElement('button');
-            var editAttr = 'shangxia(' + item.id + ',' +item.shangxiaTypes+ ')';
-            editBtn.setAttribute("type", "button");
-            editBtn.setAttribute("class", "btn btn-warning btn-sm 修改");
-            editBtn.setAttribute("onclick", editAttr);
-            if(item.shangxiaTypes == 1){
-                editBtn.innerHTML = "下架";
-            }else{
-                editBtn.innerHTML = "上架";
+            let flag = window.sessionStorage.getItem('role') == '管理员';
+            console.log('role:', window.sessionStorage.getItem('role'));
+            console.log(flag);
+            if (flag) {
+                //审核
+                if (item.shangxiaTypes==3) {
+                    var editBtn = document.createElement('button');
+                    var msg = "'审核通过'";
+                    var editAttr = 'shangxia(' + item.id + ',' + 1 + ',' + msg + ')';
+                    editBtn.setAttribute("type", "button");
+                    editBtn.setAttribute("class", "btn btn-primary btn-sm 修改");
+                    editBtn.setAttribute("onclick", editAttr);
+                    editBtn.innerHTML = "审核通过";
+                    btnGroup.appendChild(editBtn);
+
+                    var editBtn2 = document.createElement('button');
+                    var msg = "'审核失败'";
+                    var editAttr2 = 'shangxia(' + item.id + ',' + 4 + ',' + msg + ')';
+                    editBtn2.setAttribute("type", "button");
+                    editBtn2.setAttribute("class", "btn btn-danger btn-sm 修改");
+                    editBtn2.setAttribute("onclick", editAttr2);
+                    editAttr = 'shangxia(' + item.id + ',' + 4 + ')';
+                    editBtn2.innerHTML = "审核失败";
+                    btnGroup.appendChild(editBtn2);
+                } else if (item.shangxiaTypes==4) {
+                    var editBtn = document.createElement('button');
+                    var msg = "'重新审核通过'";
+                    var editAttr = 'shangxia(' + item.id + ',' + 1 + ',' + msg + ')';
+                    editBtn.setAttribute("type", "button");
+                    editBtn.setAttribute("class", "btn btn-primary btn-sm 修改");
+                    editBtn.setAttribute("onclick", editAttr);
+                    editBtn.innerHTML = "重新审核通过";
+                    btnGroup.appendChild(editBtn);
+                }
+            } else {
+
+                //上下架
+                var editBtn = document.createElement('button');
+                var editAttr = ''; //'shangxia(' + item.id + ',' +item.shangxiaTypes+ ')';
+                var msg = '';
+                editBtn.setAttribute("type", "button");
+                if(item.shangxiaTypes == 1){
+                    editBtn.innerHTML = "下架";
+                    editBtn.setAttribute("class", "btn btn-warning btn-sm 修改");
+                    msg = "'下架成功'";
+                    editAttr = 'shangxia(' + item.id + ',' + 2 + ',' + msg + ')';
+                    editBtn.setAttribute("onclick", editAttr);
+                    btnGroup.appendChild(editBtn);
+                } else if(item.shangxiaTypes == 2){
+                    editBtn.innerHTML = "上架申请";
+                    editBtn.setAttribute("class", "btn btn-info btn-sm 修改");
+                    msg = "'申请成功'";
+                    editAttr = 'shangxia(' + item.id + ',' + 3 + ',' + msg + ')';
+                    editBtn.setAttribute("onclick", editAttr);
+                    btnGroup.appendChild(editBtn);
+                } else if(item.shangxiaTypes == 4){
+                    editBtn.innerHTML = "重新上架申请";
+                    editBtn.setAttribute("class", "btn btn-info btn-sm 修改");
+                    msg = "'重新申请成功'";
+                    editAttr = 'shangxia(' + item.id + ',' + 3 + ',' + msg + ')';
+                    editBtn.setAttribute("onclick", editAttr);
+                    btnGroup.appendChild(editBtn);
+                }
+
+                //增加库存
+                var plusBtn = document.createElement('button');
+                var plusAttr = "plusGoodsKucunNumber(" + item.id+','+item.goodsKucunNumber+")";
+                plusBtn.setAttribute("type", "button");
+                plusBtn.setAttribute("class", "btn btn-info btn-sm 修改");
+                plusBtn.setAttribute("onclick", plusAttr);
+                plusBtn.innerHTML = "增加库存";
+                btnGroup.appendChild(plusBtn);
+
+                //减少库存
+                var reduceBtn = document.createElement('button');
+                var reduceAttr = "reduceGoodsKucunNumber(" + item.id+','+item.goodsKucunNumber+')';
+                reduceBtn.setAttribute("type", "button");
+                reduceBtn.setAttribute("class", "btn btn-info btn-sm 修改");
+                reduceBtn.setAttribute("onclick", reduceAttr);
+                reduceBtn.innerHTML = "减少库存";
+                btnGroup.appendChild(reduceBtn);
+
+                //修改按钮
+                var editBtn = document.createElement('button');
+                var editAttr = 'edit(' + item.id + ')';
+                editBtn.setAttribute("type", "button");
+                editBtn.setAttribute("class", "btn btn-warning btn-sm 修改");
+                editBtn.setAttribute("onclick", editAttr);
+                editBtn.innerHTML = "修改";
+                btnGroup.appendChild(editBtn);
+
+                //删除按钮
+                var deleteBtn = document.createElement('button');
+                var deleteAttr = 'remove(' + item.id + ')';
+                deleteBtn.setAttribute("type", "button");
+                deleteBtn.setAttribute("class", "btn btn-danger btn-sm 删除");
+                deleteBtn.setAttribute("onclick", deleteAttr);
+                deleteBtn.innerHTML = "删除";
+                btnGroup.appendChild(deleteBtn);
             }
-            btnGroup.appendChild(editBtn);
 
-            //增加库存
-            var plusBtn = document.createElement('button');
-            var plusAttr = "plusGoodsKucunNumber(" + item.id+','+item.goodsKucunNumber+")";
-            plusBtn.setAttribute("type", "button");
-            plusBtn.setAttribute("class", "btn btn-info btn-sm 修改");
-            plusBtn.setAttribute("onclick", plusAttr);
-            plusBtn.innerHTML = "增加库存";
-            btnGroup.appendChild(plusBtn);
-
-            //减少库存
-            var reduceBtn = document.createElement('button');
-            var reduceAttr = "reduceGoodsKucunNumber(" + item.id+','+item.goodsKucunNumber+')';
-            reduceBtn.setAttribute("type", "button");
-            reduceBtn.setAttribute("class", "btn btn-info btn-sm 修改");
-            reduceBtn.setAttribute("onclick", reduceAttr);
-            reduceBtn.innerHTML = "减少库存";
-            btnGroup.appendChild(reduceBtn);
-
-            //修改按钮
-            var editBtn = document.createElement('button');
-            var editAttr = 'edit(' + item.id + ')';
-            editBtn.setAttribute("type", "button");
-            editBtn.setAttribute("class", "btn btn-warning btn-sm 修改");
-            editBtn.setAttribute("onclick", editAttr);
-            editBtn.innerHTML = "修改";
-            btnGroup.appendChild(editBtn);
-
-            //删除按钮
-            var deleteBtn = document.createElement('button');
-            var deleteAttr = 'remove(' + item.id + ')';
-            deleteBtn.setAttribute("type", "button");
-            deleteBtn.setAttribute("class", "btn btn-danger btn-sm 删除");
-            deleteBtn.setAttribute("onclick", deleteAttr);
-            deleteBtn.innerHTML = "删除";
-            btnGroup.appendChild(deleteBtn);
             row.appendChild(btnGroup);
-
             return row;
     }
 
@@ -666,15 +718,7 @@
 
 
         //上下架
-        function shangxia(id,shangxiaTypes) {
-            var msg ="";
-            if(shangxiaTypes == 1){
-                shangxiaTypes=2;
-                msg="下架成功";
-            }else if(shangxiaTypes == 2){
-                shangxiaTypes=1;
-                msg="上架成功";
-            }
+        function shangxia(id,shangxiaTypes, msg) {
             let data = {"id":id,"shangxiaTypes":shangxiaTypes};
             httpJson("goods/update", "POST", data, (res) => {
                 if(res.code == 0){
