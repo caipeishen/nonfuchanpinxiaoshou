@@ -764,10 +764,10 @@
 		else if (window.sessionStorage.getItem('role') == '农户') {
             // $(".aaaaaa").remove();
             $(".shangjia").remove();//删除当前用户的信息
-            // 农副产品原价设置不可选
-            $('#goodsOldMoney').attr('readonly', 'readonly');
-            // 现价设置不可选
-            $('#goodsNewMoney').attr('readonly', 'readonly');
+            // // 农副产品原价设置不可选
+            // $('#goodsOldMoney').attr('readonly', 'readonly');
+            // // 现价设置不可选
+            // $('#goodsNewMoney').attr('readonly', 'readonly');
         }
         else{
             // alert("未知情况.......");

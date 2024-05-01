@@ -322,8 +322,8 @@
 								</a>
 								<div class="dropdown-menu lochana-box-shadow2 profile animated flipInY">
 									<h5>John Willing</h5>
-									<a class="dropdown-item web" href="#" onclick="toFront()">
-										<span class="ti-power-off"></span><span class="text">跳到前台</span></a>
+<%--									<a class="dropdown-item web" href="#" onclick="toFront()">--%>
+<%--										<span class="ti-power-off"></span><span class="text">跳到前台</span></a>--%>
 									<a class="dropdown-item exit" href="#" onclick="logout()">
 										<span class="ti-power-off"></span><span class="text">退出</span></a>
 								</div>
